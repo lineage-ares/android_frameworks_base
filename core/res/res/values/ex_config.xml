@@ -1,4 +1,7 @@
 <resources>
     <!-- Whether to spoof device as Pixel XL for Google Photos -->
     <bool name="config_spoofGooglePhotos">true</bool>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_supportSmartPixels">false</bool>
 </resources>
