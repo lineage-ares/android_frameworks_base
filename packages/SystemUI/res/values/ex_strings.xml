@@ -20,4 +20,8 @@
 
     <!-- OEM fast charge -->
     <string name="keyguard_plugged_in_oem_fast_charging">@string/keyguard_plugged_in_charging_fast</string>
+
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Force stop?</string>
+    <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
 </resources>
