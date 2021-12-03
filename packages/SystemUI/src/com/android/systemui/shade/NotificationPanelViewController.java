@@ -765,6 +765,8 @@ public final class NotificationPanelViewController implements Dumpable {
                     step.getTransitionState() == TransitionState.RUNNING;
             };
 
+    private boolean mBlockedGesturalNavigation = false;
+
     @Inject
     public NotificationPanelViewController(NotificationPanelView view,
             @Main Handler handler,
@@ -4803,6 +4805,10 @@ public final class NotificationPanelViewController implements Dumpable {
         );
     }
 
+    public void setBlockedGesturalNavigation(boolean blocked) {
+        mBlockedGesturalNavigation = blocked;
+    }
+
     /** Updates notification panel-specific flags on {@link SysUiState}. */
     public void updateSystemUiStateFlags() {
         if (SysUiState.DEBUG) {
@@ -4811,7 +4817,7 @@ public final class NotificationPanelViewController implements Dumpable {
         }
         mSysUiState.setFlag(SYSUI_STATE_NOTIFICATION_PANEL_EXPANDED,
                         isFullyExpanded() && !isInSettings())
-                .setFlag(SYSUI_STATE_QUICK_SETTINGS_EXPANDED, isFullyExpanded() && isInSettings())
+                .setFlag(SYSUI_STATE_QUICK_SETTINGS_EXPANDED, mBlockedGesturalNavigation || isFullyExpanded() && isInSettings())
                 .commitUpdate(mDisplayId);
     }
 
