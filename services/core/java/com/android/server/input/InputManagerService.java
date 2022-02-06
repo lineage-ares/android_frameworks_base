@@ -2900,6 +2900,18 @@ public class InputManagerService extends IInputManager.Stub
 
             setSensorPrivacy(Sensors.MICROPHONE, micMute);
         }
+
+        if ((switchMask & 0x80000) != 0) {
+            final boolean open = ((switchValues & 0x80000) != 0);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    "triggerleft", open ? 1 : 0);
+        }
+
+        if ((switchMask & 0x100000) != 0) {
+            final boolean open = ((switchValues & 0x100000) != 0);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    "triggerright", open ? 1 : 0);
+        }
     }
 
     // Set the sensor privacy state based on the hardware toggles switch states
