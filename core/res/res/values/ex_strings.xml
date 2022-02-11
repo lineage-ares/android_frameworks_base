@@ -15,4 +15,7 @@
 
     <!-- OEM fast charge -->
     <string name="config_oemFastChargeNodePath"></string>
+
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Face unlock disabled due to inactivity</string>
 </resources>
