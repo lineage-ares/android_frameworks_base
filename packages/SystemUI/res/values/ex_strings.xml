@@ -32,4 +32,7 @@
 
     <!-- Statusbar Icons -->
     <string name="status_bar_ims">VoLTE/VoWiFi</string>
+
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Recognizing face...</string>
 </resources>
