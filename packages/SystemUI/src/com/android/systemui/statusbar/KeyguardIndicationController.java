@@ -935,9 +935,18 @@ public class KeyguardIndicationController {
                     mContext, mChargingTimeRemaining);
             String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted,
                     percentage);
+            if (mChargingSpeed == BatteryStatus.CHARGING_OEM_FAST) {
+                chargingText = percentage + " • " +
+                        mContext.getResources().getString(R.string.keyguard_plugged_in_oem_fast_charging) + "(" +
+                        chargingTimeFormatted + "Until full)";
+            }
             return chargingText + batteryInfo;
         } else {
             String chargingText =  mContext.getResources().getString(chargingId, percentage);
+            if (mChargingSpeed == BatteryStatus.CHARGING_OEM_FAST) {
+                chargingText = percentage + " • " +
+                        mContext.getResources().getString(R.string.keyguard_plugged_in_oem_fast_charging);
+            }
             return chargingText + batteryInfo;
         }
     }
